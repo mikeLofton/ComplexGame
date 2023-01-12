@@ -44,15 +44,4 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 }
 
-void APlayerCharacter::ApplyMovement(float horizontal, float vertical, float speed)
-{
-	FVector forward = GetActorForwardVector();
-	FVector right = GetActorRightVector();
-
-	FVector direction;
-	direction = forward * vertical;
-	direction += right * horizontal;
-	direction.Normalize();
-	AddMovementInput(direction, speed);
-}
 

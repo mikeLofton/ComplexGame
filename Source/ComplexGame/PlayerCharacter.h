@@ -26,10 +26,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	//Move
-	UFUNCTION(BlueprintCallable)
-		void ApplyMovement(float horizontal, float vertical, float speed);
-
 private:
 	//Camera
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
