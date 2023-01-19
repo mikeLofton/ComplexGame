@@ -47,4 +47,41 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 }
 
+void APlayerCharacter::MoveForward(float Value)
+{
+	if (Controller != NULL && Value != 0)
+	{
+		//get character direction
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0, Rotation.Yaw, 0);
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+
+		//add movement input
+		AddMovementInput(Direction, Value);
+	}
+}
+
+void APlayerCharacter::MoveRight(float Value)
+{
+	if (Controller != NULL && Value != 0)
+	{
+		//get character direction
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0, Rotation.Yaw, 0);
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+
+		//add movement input
+		AddMovementInput(Direction, Value);
+	}
+}
+
+void APlayerCharacter::CameraLookUp(float Value)
+{
+
+}
+
+void APlayerCharacter::CameraLookRight(float Value)
+{
+}
+
 

@@ -34,4 +34,10 @@ private:
 	//Spring Arm
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 		class USpringArmComponent* CameraArm;
+
+	//Movement
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+	void CameraLookUp(float Value);
+	void CameraLookRight(float Value);
 };
