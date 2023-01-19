@@ -14,4 +14,15 @@ class COMPLEXGAME_API AEncounterTriggerBox : public ATriggerBox
 {
 	GENERATED_BODY()
 	
+public:
+	AEncounterTriggerBox();
+
+	UFUNCTION()
+		void OnOverlapBegin(class AActor* OverlappedActor, class AActor* OtherActor);
+
+	UFUNCTION()
+		void OnOverlapEnd(class AActor* OverlappedActor, class AActor* OtherActor);
+
+protected:
+	virtual void BeginPlay() override;
 };
