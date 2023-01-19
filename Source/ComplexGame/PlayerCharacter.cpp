@@ -4,6 +4,7 @@
 #include "PlayerCharacter.h"
 #include <Camera/CameraComponent.h>
 #include <GameFramework/SpringArmComponent.h>
+#include <GameFramework/Controller.h>
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -45,6 +46,16 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	//Bind to Action Mapping keys
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	//Bind to Axis Mapping keys
+	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
+	PlayerInputComponent->BindAxis("CameraLookUp", this, &APlayerCharacter::CameraLookUp);
+	PlayerInputComponent->BindAxis("CameraLookRight", this, &APlayerCharacter::CameraLookRight);
+
 }
 
 void APlayerCharacter::MoveForward(float Value)
@@ -77,11 +88,12 @@ void APlayerCharacter::MoveRight(float Value)
 
 void APlayerCharacter::CameraLookUp(float Value)
 {
-
+	AddControllerPitchInput(Value);
 }
 
 void APlayerCharacter::CameraLookRight(float Value)
 {
+	AddControllerYawInput(Value);
 }
 
 
