@@ -21,7 +21,6 @@ APlayerCharacter::APlayerCharacter()
 	//Create the camera
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Player Camera"));
 	Camera->SetupAttachment(CameraArm);
-
 }
 
 // Called when the game starts or when spawned
