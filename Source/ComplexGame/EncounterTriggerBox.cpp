@@ -15,8 +15,10 @@ AEncounterTriggerBox::AEncounterTriggerBox()
 
 void AEncounterTriggerBox::OnOverlapBegin(AActor* OverlappedActor, AActor* OtherActor)
 {
+	//If OtherActer and this are not the same
 	if (OtherActor && (OtherActor != this))
 	{
+		//Display debug message
 		print("Overlap Begin");
 		printf("Overlapped Actor = %", *OverlappedActor->GetName());
 	}
@@ -24,8 +26,10 @@ void AEncounterTriggerBox::OnOverlapBegin(AActor* OverlappedActor, AActor* Other
 
 void AEncounterTriggerBox::OnOverlapEnd(AActor* OverlappedActor, AActor* OtherActor)
 {
+	//If OtherActer and this are not the same
 	if (OtherActor && (OtherActor != this))
 	{
+		//Display Debug message
 		print("Overlap Ended");
 		printf("Overlapped Actor = %", *OverlappedActor->GetName());
 	}
@@ -35,5 +39,5 @@ void AEncounterTriggerBox::BeginPlay()
 {
 	Super::BeginPlay();
 
-	DrawDebugBox(GetWorld(), GetActorLocation(), GetComponentsBoundingBox().GetExtent(), FColor::Purple, true, -1, 0, 5);
+	DrawDebugBox(GetWorld(), GetActorLocation(), GetComponentsBoundingBox().GetExtent(), FColor::Purple, true, -1, 0, 5); //makes the trigger box visible
 }

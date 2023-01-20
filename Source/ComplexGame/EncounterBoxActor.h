@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "EncounterBoxActor.generated.h"
-
+/// NO LONGER IN USE
 UCLASS()
 class COMPLEXGAME_API AEncounterBoxActor : public AActor
 {
